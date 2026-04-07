@@ -21,7 +21,7 @@ https://github.com/seannam/VersionGateKit.git
 **Package.swift:**
 ```swift
 dependencies: [
-    .package(url: "https://github.com/seannam/VersionGateKit.git", from: "1.0.0")
+    .package(url: "https://github.com/seannam/VersionGateKit.git", from: "1.1.0")
 ]
 ```
 
@@ -30,7 +30,7 @@ dependencies: [
 packages:
   VersionGateKit:
     url: https://github.com/seannam/VersionGateKit.git
-    from: 1.0.0
+    from: 1.1.0
 
 targets:
   MyApp:
