@@ -1,0 +1,733 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.xctest/Contents/MacOS/VersionGateKitPackageTests",
+      "packagePath" : "/Users/seannam/Developer/VersionGateKit",
+      "productName" : "VersionGateKitPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.VersionGateKit-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/sources",
+      "importPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/ForceUpdateOverlay.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/SemanticVersion.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateKitConfig.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/View+VersionGate.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "VersionGateKit",
+      "moduleOutputPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules/VersionGateKit.swiftmodule",
+      "objects" : [
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/ForceUpdateOverlay.swift.o",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/SemanticVersion.swift.o",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateKitConfig.swift.o",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateManager.swift.o",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/View+VersionGate.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/include/VersionGateKit-Swift.h",
+        "-swift-version",
+        "5",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "versiongatekit"
+      ],
+      "outputFileMapPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/ForceUpdateOverlay.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/SemanticVersion.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateKitConfig.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/View+VersionGate.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules/VersionGateKit.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/ForceUpdateOverlay.swift",
+        "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/SemanticVersion.swift",
+        "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateKitConfig.swift",
+        "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateManager.swift",
+        "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/View+VersionGate.swift"
+      ],
+      "tempsPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.VersionGateKitPackageTests-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/sources",
+      "importPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules/VersionGateKitTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "VersionGateKitPackageTests",
+      "moduleOutputPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules/VersionGateKitPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/include/VersionGateKitPackageTests-Swift.h",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "versiongatekit"
+      ],
+      "outputFileMapPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules/VersionGateKitPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.VersionGateKitTests-arm64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/sources",
+      "importPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Tests/VersionGateKitTests/MockURLProtocol.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Tests/VersionGateKitTests/VersionGateKitTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules/VersionGateKit.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "VersionGateKitTests",
+      "moduleOutputPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules/VersionGateKitTests.swiftmodule",
+      "objects" : [
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/MockURLProtocol.swift.o",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/VersionGateKitTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "5",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "versiongatekit"
+      ],
+      "outputFileMapPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/MockURLProtocol.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/VersionGateKitTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules/VersionGateKitTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/seannam/Developer/VersionGateKit/Tests/VersionGateKitTests/MockURLProtocol.swift",
+        "/Users/seannam/Developer/VersionGateKit/Tests/VersionGateKitTests/VersionGateKitTests.swift"
+      ],
+      "tempsPath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "VersionGateKit" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "VersionGateKit",
+      "-package-name",
+      "versiongatekit",
+      "-c",
+      "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/ForceUpdateOverlay.swift",
+      "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/SemanticVersion.swift",
+      "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateKitConfig.swift",
+      "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateManager.swift",
+      "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/View+VersionGate.swift",
+      "-I",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/include/VersionGateKit-Swift.h",
+      "-swift-version",
+      "5",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "versiongatekit",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "VersionGateKitPackageTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "VersionGateKitPackageTests",
+      "-package-name",
+      "versiongatekit",
+      "-c",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/include/VersionGateKitPackageTests-Swift.h",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "versiongatekit",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "VersionGateKitTests" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "VersionGateKitTests",
+      "-package-name",
+      "versiongatekit",
+      "-c",
+      "/Users/seannam/Developer/VersionGateKit/Tests/VersionGateKitTests/MockURLProtocol.swift",
+      "/Users/seannam/Developer/VersionGateKit/Tests/VersionGateKitTests/VersionGateKitTests.swift",
+      "-I",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "5",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "versiongatekit",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "VersionGateKit" : [
+
+    ],
+    "VersionGateKitPackageTests" : [
+      "VersionGateKitTests",
+      "VersionGateKit"
+    ],
+    "VersionGateKitTests" : [
+      "VersionGateKit"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/ForceUpdateOverlay.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/SemanticVersion.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateKitConfig.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/View+VersionGate.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/sources"
+    },
+    "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/sources"
+    },
+    "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/ForceUpdateOverlay.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/SemanticVersion.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateKitConfig.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/View+VersionGate.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/MockURLProtocol.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/VersionGateKitTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Tests/VersionGateKitTests/MockURLProtocol.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/seannam/Developer/VersionGateKit/Tests/VersionGateKitTests/VersionGateKitTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKitTests.build/sources"
+    },
+    "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "": {
+    "swift-dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/master.swiftdeps"
+  },
+  "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/ForceUpdateOverlay.swift": {
+    "dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/ForceUpdateOverlay.d",
+    "object": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/ForceUpdateOverlay.swift.o",
+    "swiftmodule": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/ForceUpdateOverlay~partial.swiftmodule",
+    "swift-dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/ForceUpdateOverlay.swiftdeps",
+    "diagnostics": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/ForceUpdateOverlay.dia"
+  },
+  "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/SemanticVersion.swift": {
+    "dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/SemanticVersion.d",
+    "object": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/SemanticVersion.swift.o",
+    "swiftmodule": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/SemanticVersion~partial.swiftmodule",
+    "swift-dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/SemanticVersion.swiftdeps",
+    "diagnostics": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/SemanticVersion.dia"
+  },
+  "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateKitConfig.swift": {
+    "dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateKitConfig.d",
+    "object": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateKitConfig.swift.o",
+    "swiftmodule": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateKitConfig~partial.swiftmodule",
+    "swift-dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateKitConfig.swiftdeps",
+    "diagnostics": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateKitConfig.dia"
+  },
+  "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/VersionGateManager.swift": {
+    "dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateManager.d",
+    "object": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateManager.swift.o",
+    "swiftmodule": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateManager.swiftdeps",
+    "diagnostics": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/VersionGateManager.dia"
+  },
+  "/Users/seannam/Developer/VersionGateKit/Sources/VersionGateKit/View+VersionGate.swift": {
+    "dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/View+VersionGate.d",
+    "object": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/View+VersionGate.swift.o",
+    "swiftmodule": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/View+VersionGate~partial.swiftmodule",
+    "swift-dependencies": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/View+VersionGate.swiftdeps",
+    "diagnostics": "/Users/seannam/Developer/VersionGateKit/.build/arm64-apple-macosx/debug/VersionGateKit.build/View+VersionGate.dia"
+  }
+}
