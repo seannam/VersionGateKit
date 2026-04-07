@@ -1,0 +1,15 @@
+#Ignore vscode AI rules
+.github/instructions/codacy.instructions.md
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+DerivedData/
+
+# Xcode
+*.xcodeproj/xcuserdata/
+*.xcworkspace/xcuserdata/
+
+# macOS
+.DS_Store
