@@ -235,4 +235,205 @@ final class VersionGateKitTests: XCTestCase {
         XCTAssertFalse(manager.requiresUpdate)
         XCTAssertNil(manager.latestAppStoreVersion)
     }
+
+    // MARK: - Enforcement mode defaults
+
+    func testEnforcementDefaultsToRequired() {
+        let config = VersionGateKitConfig(bundleId: "x", appStoreId: "y")
+        switch config.enforcement {
+        case .required:
+            break
+        case .reminder, .aggressive:
+            XCTFail("Expected default enforcement to be .required")
+        }
+    }
+
+    func testReminderSettingsDefaults() {
+        let settings = VersionGateReminderSettings()
+        XCTAssertEqual(settings.snoozeDuration, 24 * 3600)
+        XCTAssertEqual(settings.dismissButtonLabel, "Later")
+    }
+
+    func testAggressiveSettingsDefaults() {
+        let settings = VersionGateAggressiveSettings()
+        XCTAssertEqual(settings.dismissDelay, 3.0)
+        XCTAssertEqual(settings.dismissButtonLabel, "Later")
+    }
+
+    // MARK: - Enforcement helpers
+
+    private func mockSession(returning version: String) -> URLSession {
+        let mockConfig = URLSessionConfiguration.ephemeral
+        mockConfig.protocolClasses = [MockURLProtocol.self]
+        MockURLProtocol.requestHandler = { request in
+            let json = "{\"results\":[{\"version\":\"\(version)\"}]}"
+            let data = json.data(using: .utf8)!
+            let response = HTTPURLResponse(
+                url: request.url!,
+                statusCode: 200,
+                httpVersion: nil,
+                headerFields: nil
+            )!
+            return (response, data)
+        }
+        return URLSession(configuration: mockConfig)
+    }
+
+    private func makeManagerWithEnforcement(
+        enforcement: VersionGateEnforcement,
+        installedVersion: String = "1.0.0",
+        userDefaults: UserDefaults,
+        session: URLSession,
+        suitePrefix: String
+    ) -> VersionGateManager {
+        let manager = VersionGateManager(session: session, userDefaults: userDefaults)
+        manager.configure(VersionGateKitConfig(
+            bundleId: "test.bundle.id",
+            appStoreId: "1234567890",
+            installedVersion: installedVersion,
+            userDefaultsSuitePrefix: suitePrefix,
+            enforcement: enforcement
+        ))
+        return manager
+    }
+
+    // MARK: - dismiss() semantics
+
+    func testDismissIsNoOpUnderRequired() async {
+        let defaults = makeDefaults()
+        let session = mockSession(returning: "9.9.9")
+        let manager = makeManagerWithEnforcement(
+            enforcement: .required,
+            userDefaults: defaults,
+            session: session,
+            suitePrefix: "vgk_dismiss_required"
+        )
+        await manager.checkIfNeeded()
+        XCTAssertTrue(manager.requiresUpdate)
+        manager.dismiss()
+        XCTAssertFalse(manager.isDismissed)
+        MockURLProtocol.requestHandler = nil
+    }
+
+    func testDismissUnderReminderSetsFlagAndPersists() async {
+        let defaults = makeDefaults()
+        let session = mockSession(returning: "9.9.9")
+        let suitePrefix = "vgk_dismiss_reminder"
+        let manager = makeManagerWithEnforcement(
+            enforcement: .reminder(.init(snoozeDuration: 3600)),
+            userDefaults: defaults,
+            session: session,
+            suitePrefix: suitePrefix
+        )
+        await manager.checkIfNeeded()
+        XCTAssertTrue(manager.requiresUpdate)
+        manager.dismiss()
+        XCTAssertTrue(manager.isDismissed)
+
+        // Fresh manager pointed at the same defaults — should restore snooze.
+        let manager2 = makeManagerWithEnforcement(
+            enforcement: .reminder(.init(snoozeDuration: 3600)),
+            userDefaults: defaults,
+            session: session,
+            suitePrefix: suitePrefix
+        )
+        await manager2.checkIfNeeded()
+        XCTAssertTrue(manager2.requiresUpdate)
+        XCTAssertTrue(manager2.isDismissed)
+        MockURLProtocol.requestHandler = nil
+    }
+
+    func testReminderSnoozeExpiresAfterTTL() async {
+        let defaults = makeDefaults()
+        let suitePrefix = "vgk_snooze_expired"
+        // Pre-seed a stale dismissal for version 5.0.0.
+        let stale = VersionGateManager.CachedDecision(
+            requiresUpdate: true,
+            latestAppStoreVersion: "5.0.0",
+            installedVersion: "1.0.0",
+            timestamp: Date().timeIntervalSince1970,
+            dismissedAt: Date().timeIntervalSince1970 - 7200,
+            dismissedForVersion: "5.0.0"
+        )
+        defaults.set(try! JSONEncoder().encode(stale), forKey: "\(suitePrefix)_cache")
+
+        let manager = makeManagerWithEnforcement(
+            enforcement: .reminder(.init(snoozeDuration: 3600)),
+            userDefaults: defaults,
+            session: .shared,
+            suitePrefix: suitePrefix
+        )
+        await manager.checkIfNeeded()
+        XCTAssertTrue(manager.requiresUpdate)
+        XCTAssertFalse(manager.isDismissed)
+    }
+
+    func testReminderSnoozeInvalidatedByNewerStoreVersion() async {
+        let defaults = makeDefaults()
+        let suitePrefix = "vgk_snooze_newer_version"
+        // Pre-seed dismissal for version 5.0.0 but network returns 9.9.9.
+        let seeded = VersionGateManager.CachedDecision(
+            requiresUpdate: true,
+            latestAppStoreVersion: "5.0.0",
+            installedVersion: "1.0.0",
+            timestamp: Date().timeIntervalSince1970 - (7 * 3600),  // forces network path
+            dismissedAt: Date().timeIntervalSince1970,
+            dismissedForVersion: "5.0.0"
+        )
+        defaults.set(try! JSONEncoder().encode(seeded), forKey: "\(suitePrefix)_cache")
+
+        let session = mockSession(returning: "9.9.9")
+        let manager = makeManagerWithEnforcement(
+            enforcement: .reminder(.init(snoozeDuration: 24 * 3600)),
+            userDefaults: defaults,
+            session: session,
+            suitePrefix: suitePrefix
+        )
+        await manager.checkIfNeeded()
+        XCTAssertTrue(manager.requiresUpdate)
+        XCTAssertEqual(manager.latestAppStoreVersion, "9.9.9")
+        XCTAssertFalse(manager.isDismissed)
+        MockURLProtocol.requestHandler = nil
+    }
+
+    func testDismissUnderAggressiveDoesNotPersist() async {
+        let defaults = makeDefaults()
+        let session = mockSession(returning: "9.9.9")
+        let suitePrefix = "vgk_dismiss_aggressive"
+        let manager = makeManagerWithEnforcement(
+            enforcement: .aggressive(.init(dismissDelay: 0)),
+            userDefaults: defaults,
+            session: session,
+            suitePrefix: suitePrefix
+        )
+        await manager.checkIfNeeded()
+        XCTAssertTrue(manager.requiresUpdate)
+        manager.dismiss()
+        XCTAssertTrue(manager.isDismissed)
+
+        let manager2 = makeManagerWithEnforcement(
+            enforcement: .aggressive(.init(dismissDelay: 0)),
+            userDefaults: defaults,
+            session: session,
+            suitePrefix: suitePrefix
+        )
+        await manager2.checkIfNeeded()
+        XCTAssertTrue(manager2.requiresUpdate)
+        XCTAssertFalse(manager2.isDismissed)
+        MockURLProtocol.requestHandler = nil
+    }
+
+    // MARK: - Backwards-compat regression
+
+    func testExistingInitSignatureStillCompiles() {
+        _ = VersionGateKitConfig(bundleId: "x", appStoreId: "y")
+        _ = VersionGateKitConfig(
+            bundleId: "x",
+            appStoreId: "y",
+            installedVersion: "1.0.0",
+            cacheTTL: 60,
+            userDefaultsSuitePrefix: "p",
+            minimumVersionProvider: { nil }
+        )
+    }
 }

@@ -141,6 +141,38 @@ All theme tokens have sensible defaults (`Color(uiColor: .systemBackground)`, `.
 
 ## Behavior
 
+### Enforcement Modes
+
+VersionGateKit ships three strictness levels via `VersionGateEnforcement`. Pass one to `VersionGateKitConfig(enforcement:)`. The default is `.required`, so existing integrations need no changes.
+
+**`.required`** (default) — Non-dismissible blocker. Use for security or compliance updates that must be installed.
+
+```swift
+VersionGateKitConfig(bundleId: "...", appStoreId: "...") // .required by default
+```
+
+**`.reminder`** — Polite, dismissible prompt. Tapping "Later" hides the gate for the snooze window (24 hours by default) and the dismissal persists across launches. The snooze is automatically invalidated when a newer App Store version appears.
+
+```swift
+VersionGateKitConfig(
+    bundleId: "...",
+    appStoreId: "...",
+    enforcement: .reminder // or .reminder(.init(snoozeDuration: 6 * 3600))
+)
+```
+
+**`.aggressive`** — A blocker whose "Later" button is disabled until a short forced delay (3 seconds by default) elapses. The dismissal is in-memory only, so the overlay reappears on the next check.
+
+```swift
+VersionGateKitConfig(
+    bundleId: "...",
+    appStoreId: "...",
+    enforcement: .aggressive // or .aggressive(.init(dismissDelay: 5))
+)
+```
+
+`manager.dismiss()` is a no-op under `.required` and is honored by both the bundled overlay and the `.versionGate()` modifier through the published `manager.isDismissed` flag.
+
 - **Cache TTL:** 6 hours by default. Override via `VersionGateKitConfig(cacheTTL:)`.
 - **Cache key:** `\(userDefaultsSuitePrefix)_cache`. Default prefix is `versiongatekit`. Override per app to avoid collisions when multiple targets share a UserDefaults suite.
 - **Cache invalidation:** Stored decisions are bound to the `installedVersion` they were computed for. After a fresh update, the cache is silently dropped so the user never sees a stale `requiresUpdate=true`.

@@ -4,6 +4,52 @@ import SwiftUI
 import UIKit
 #endif
 
+// MARK: - Enforcement
+
+/// Settings that shape the `.reminder` enforcement mode.
+public struct VersionGateReminderSettings {
+    public var snoozeDuration: TimeInterval
+    public var dismissButtonLabel: String
+
+    public init(
+        snoozeDuration: TimeInterval = 24 * 3600,
+        dismissButtonLabel: String = "Later"
+    ) {
+        self.snoozeDuration = snoozeDuration
+        self.dismissButtonLabel = dismissButtonLabel
+    }
+}
+
+/// Settings that shape the `.aggressive` enforcement mode.
+public struct VersionGateAggressiveSettings {
+    public var dismissButtonLabel: String
+    public var dismissDelay: TimeInterval
+
+    public init(
+        dismissButtonLabel: String = "Later",
+        dismissDelay: TimeInterval = 3.0
+    ) {
+        self.dismissButtonLabel = dismissButtonLabel
+        self.dismissDelay = dismissDelay
+    }
+}
+
+/// Strictness level for the update gate.
+///
+/// - `.required` (default) is today's behavior: non-dismissible blocker.
+/// - `.reminder` is a polite, dismissible prompt whose dismissal persists for
+///   the configured snooze window.
+/// - `.aggressive` shows a blocker whose "Later" button unlocks after a short
+///   forced delay; the dismissal is in-memory only and reappears on next check.
+public enum VersionGateEnforcement {
+    case reminder(VersionGateReminderSettings)
+    case aggressive(VersionGateAggressiveSettings)
+    case required
+
+    public static let reminder: Self = .reminder(.init())
+    public static let aggressive: Self = .aggressive(.init())
+}
+
 // MARK: - Configuration
 
 /// Configuration for VersionGateKit. Provide app-specific values at launch.
@@ -15,6 +61,7 @@ public struct VersionGateKitConfig {
     public var cacheTTL: TimeInterval
     public var userDefaultsSuitePrefix: String
     public var minimumVersionProvider: (() -> String?)?
+    public var enforcement: VersionGateEnforcement
 
     // Theme tokens
     public var accentColor: Color
@@ -38,6 +85,7 @@ public struct VersionGateKitConfig {
         cacheTTL: TimeInterval = 6 * 3600,
         userDefaultsSuitePrefix: String = "versiongatekit",
         minimumVersionProvider: (() -> String?)? = nil,
+        enforcement: VersionGateEnforcement = .required,
         accentColor: Color = .yellow,
         backgroundColor: Color = {
             #if os(tvOS)
@@ -70,6 +118,7 @@ public struct VersionGateKitConfig {
         self.cacheTTL = cacheTTL
         self.userDefaultsSuitePrefix = userDefaultsSuitePrefix
         self.minimumVersionProvider = minimumVersionProvider
+        self.enforcement = enforcement
         self.accentColor = accentColor
         self.backgroundColor = backgroundColor
         self.cardColor = cardColor

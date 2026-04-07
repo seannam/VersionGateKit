@@ -18,7 +18,7 @@ private struct VersionGateContainer<Content: View>: View {
         ZStack {
             content()
 
-            if manager.requiresUpdate {
+            if manager.requiresUpdate && !manager.isDismissed {
                 ForceUpdateOverlay()
                     .zIndex(999)
                     .transition(.opacity)

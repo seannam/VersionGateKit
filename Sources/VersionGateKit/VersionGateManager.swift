@@ -19,6 +19,7 @@ public final class VersionGateManager: ObservableObject {
     @Published public private(set) var requiresUpdate: Bool = false
     @Published public private(set) var latestAppStoreVersion: String? = nil
     @Published public private(set) var config: VersionGateKitConfig
+    @Published public private(set) var isDismissed: Bool = false
 
     public var installedVersion: String { config.installedVersion }
 
@@ -60,6 +61,7 @@ public final class VersionGateManager: ObservableObject {
 
         if let cached = loadCache(), !cached.isExpired(ttl: config.cacheTTL) {
             apply(requiresUpdate: cached.requiresUpdate, latestVersion: cached.latestAppStoreVersion)
+            evaluateSnooze(from: cached)
             return
         }
 
@@ -77,14 +79,56 @@ public final class VersionGateManager: ObservableObject {
             let shouldBlock = installed < required
 
             apply(requiresUpdate: shouldBlock, latestVersion: appStoreVersionString)
-            saveCache(CachedDecision(
+            // Carry over any existing snooze fields only if they still match
+            // the current required version; otherwise a newer store release
+            // automatically re-arms the prompt.
+            let existing = loadCache()
+            let carriedDismissedAt: TimeInterval?
+            let carriedDismissedForVersion: String?
+            if let existing, existing.dismissedForVersion == appStoreVersionString {
+                carriedDismissedAt = existing.dismissedAt
+                carriedDismissedForVersion = existing.dismissedForVersion
+            } else {
+                carriedDismissedAt = nil
+                carriedDismissedForVersion = nil
+            }
+            let freshDecision = CachedDecision(
                 requiresUpdate: shouldBlock,
                 latestAppStoreVersion: appStoreVersionString,
                 installedVersion: installedVersion,
-                timestamp: Date().timeIntervalSince1970
-            ))
+                timestamp: Date().timeIntervalSince1970,
+                dismissedAt: carriedDismissedAt,
+                dismissedForVersion: carriedDismissedForVersion
+            )
+            saveCache(freshDecision)
+            evaluateSnooze(from: freshDecision)
         } catch {
             applyFailOpen()
+        }
+    }
+
+    /// Dismisses the gate if the current enforcement mode allows it. No-op
+    /// under `.required`.
+    public func dismiss() {
+        switch config.enforcement {
+        case .required:
+            return
+        case .aggressive:
+            isDismissed = true
+        case .reminder:
+            isDismissed = true
+            let now = Date().timeIntervalSince1970
+            if let existing = loadCache() {
+                let updated = CachedDecision(
+                    requiresUpdate: existing.requiresUpdate,
+                    latestAppStoreVersion: existing.latestAppStoreVersion,
+                    installedVersion: existing.installedVersion,
+                    timestamp: existing.timestamp,
+                    dismissedAt: now,
+                    dismissedForVersion: latestAppStoreVersion
+                )
+                saveCache(updated)
+            }
         }
     }
 
@@ -110,13 +154,29 @@ public final class VersionGateManager: ObservableObject {
 
     private func applyFailOpen() {
         apply(requiresUpdate: false, latestVersion: nil)
+        isDismissed = false
         // Cache the failure so we don't hammer the endpoint on retry.
         saveCache(CachedDecision(
             requiresUpdate: false,
             latestAppStoreVersion: nil,
             installedVersion: installedVersion,
-            timestamp: Date().timeIntervalSince1970
+            timestamp: Date().timeIntervalSince1970,
+            dismissedAt: nil,
+            dismissedForVersion: nil
         ))
+    }
+
+    private func evaluateSnooze(from cached: CachedDecision) {
+        guard requiresUpdate,
+              case .reminder(let settings) = config.enforcement,
+              let dismissedAt = cached.dismissedAt,
+              let dismissedForVersion = cached.dismissedForVersion,
+              dismissedForVersion == cached.latestAppStoreVersion else {
+            isDismissed = false
+            return
+        }
+        let elapsed = Date().timeIntervalSince1970 - dismissedAt
+        isDismissed = elapsed < settings.snoozeDuration
     }
 
     private var cacheKey: String {
@@ -158,6 +218,24 @@ public final class VersionGateManager: ObservableObject {
         let latestAppStoreVersion: String?
         let installedVersion: String
         let timestamp: TimeInterval
+        var dismissedAt: TimeInterval?
+        var dismissedForVersion: String?
+
+        init(
+            requiresUpdate: Bool,
+            latestAppStoreVersion: String?,
+            installedVersion: String,
+            timestamp: TimeInterval,
+            dismissedAt: TimeInterval? = nil,
+            dismissedForVersion: String? = nil
+        ) {
+            self.requiresUpdate = requiresUpdate
+            self.latestAppStoreVersion = latestAppStoreVersion
+            self.installedVersion = installedVersion
+            self.timestamp = timestamp
+            self.dismissedAt = dismissedAt
+            self.dismissedForVersion = dismissedForVersion
+        }
 
         func isExpired(ttl: TimeInterval) -> Bool {
             Date().timeIntervalSince1970 - timestamp > ttl
