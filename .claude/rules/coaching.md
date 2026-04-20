@@ -1,0 +1,1 @@
+If .claude/coaching/.unread exists, briefly tell the user: "Your engineering coach has new findings. Run /agentic:coach to review them." Then delete .claude/coaching/.unread. Do not read or analyze findings unless asked.

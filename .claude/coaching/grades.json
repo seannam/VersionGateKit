@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-04-11T19:51:11.494206",
+  "since_days": 7,
+  "metrics": {
+    "size": 15706,
+    "attempts": 0.0,
+    "streak": 3,
+    "presence": 3.7
+  },
+  "grades": {
+    "size": "A",
+    "attempts": "A",
+    "streak": "B",
+    "presence": "B",
+    "overall": "B"
+  }
+}
