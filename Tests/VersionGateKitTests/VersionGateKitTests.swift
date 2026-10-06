@@ -1,8 +1,22 @@
+import SwiftUI
 import XCTest
 @testable import VersionGateKit
 
 @MainActor
 final class VersionGateKitTests: XCTestCase {
+
+    // MARK: - Config
+
+    func testIconDefaultsToNilAndKeepsEmoji() {
+        let config = VersionGateKitConfig(bundleId: "a", appStoreId: "1")
+        XCTAssertNil(config.icon)
+        XCTAssertFalse(config.iconEmoji.isEmpty)
+    }
+
+    func testCustomIconIsStored() {
+        let config = VersionGateKitConfig(bundleId: "a", appStoreId: "1", icon: AnyView(Image(systemName: "arrow.up")))
+        XCTAssertNotNil(config.icon)
+    }
 
     // MARK: - SemanticVersion
 

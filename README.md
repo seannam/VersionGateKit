@@ -21,7 +21,7 @@ https://github.com/seannam/VersionGateKit.git
 **Package.swift:**
 ```swift
 dependencies: [
-    .package(url: "https://github.com/seannam/VersionGateKit.git", from: "1.1.0")
+    .package(url: "https://github.com/seannam/VersionGateKit.git", from: "1.2.0")
 ]
 ```
 
@@ -30,7 +30,7 @@ dependencies: [
 packages:
   VersionGateKit:
     url: https://github.com/seannam/VersionGateKit.git
-    from: 1.1.0
+    from: 1.2.0
 
 targets:
   MyApp:
@@ -134,6 +134,16 @@ VersionGateKitConfig(
     headlineText: "Update Required",
     bodyText: "A new version is available. Please update to keep playing.",
     buttonLabel: "Update Now"
+)
+```
+
+Apps that avoid emoji can pass `icon:` (any SwiftUI view, wrapped in `AnyView`). When set it replaces `iconEmoji` as the overlay's hero art and is hidden from VoiceOver:
+
+```swift
+VersionGateKitConfig(
+    bundleId: "...",
+    appStoreId: "...",
+    icon: AnyView(Image(systemName: "arrow.up.circle").font(.system(size: 72)))
 )
 ```
 

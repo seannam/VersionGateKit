@@ -72,6 +72,9 @@ public struct VersionGateKitConfig {
 
     // Copy
     public var iconEmoji: String
+    /// Custom hero icon drawn instead of `iconEmoji` when set (for apps that
+    /// do not use emoji in their UI). The host sizes and colors it.
+    public var icon: AnyView?
     public var headlineText: String
     public var bodyText: String
     public var buttonLabel: String
@@ -110,7 +113,8 @@ public struct VersionGateKitConfig {
         iconEmoji: String = "⬆️",
         headlineText: String = "Update Required",
         bodyText: String = "A new version of this app is available. Please update to keep using it.",
-        buttonLabel: String = "Update Now"
+        buttonLabel: String = "Update Now",
+        icon: AnyView? = nil
     ) {
         self.bundleId = bundleId
         self.appStoreId = appStoreId
@@ -128,6 +132,7 @@ public struct VersionGateKitConfig {
         self.headlineText = headlineText
         self.bodyText = bodyText
         self.buttonLabel = buttonLabel
+        self.icon = icon
     }
 
     // MARK: - Derived URLs

@@ -19,8 +19,13 @@ public struct ForceUpdateOverlay: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 24) {
-                Text(config.iconEmoji)
-                    .font(.system(size: 80))
+                if let icon = config.icon {
+                    icon
+                        .accessibilityHidden(true)
+                } else {
+                    Text(config.iconEmoji)
+                        .font(.system(size: 80))
+                }
 
                 Text(config.headlineText)
                     .font(.largeTitle.bold())
